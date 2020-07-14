@@ -171,11 +171,11 @@ void Solver(uint3 id : SV_DispatchThreadID)
 				+ GetOutMaskValue(_SourceTex, _MaskTex, id.xy + _SizeOffset.zw)
 				+ GetOutMaskValue(_SourceTex, _MaskTex, id.xy - _SizeOffset.zw);
 
-			float3 source = _SourceLapTex[id.xy];
+			//float3 source = _SourceLapTex[id.xy];
 			float3 lap = _LapTex[id.xy];
-			float3 mix = float3(abs(source.r) > abs(lap.r) ? source.r : lap.r, 
-								abs(source.g) > abs(lap.g) ? source.g : lap.g, 
-								abs(source.b) > abs(lap.b) ? source.b : lap.b);
+			//float3 mix = float3(abs(source.r) > abs(lap.r) ? source.r : lap.r, 
+			//					abs(source.g) > abs(lap.g) ? source.g : lap.g, 
+			//					abs(source.b) > abs(lap.b) ? source.b : lap.b);
 
 			float3 xk = (lap + outMask)/*b*/ - inMask/*Rx(k)*/;
 			//float3 xk = (mix + outMask)/*b*/ - inMask/*Rx(k)*/;
